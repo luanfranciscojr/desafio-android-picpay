@@ -51,7 +51,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         adapter = UserListAdapter()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
-
         progressBar.visibility = View.VISIBLE
         service.getUsers()
             .enqueue(object : Callback<List<User>> {
