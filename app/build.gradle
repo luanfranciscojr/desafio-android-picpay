@@ -1,9 +1,6 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
-
 apply plugin: 'kotlin-kapt'
 
 android {
@@ -27,6 +24,10 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    dataBinding {
+        enabled = true
     }
 
     compileOptions {
@@ -54,7 +55,10 @@ dependencies {
     implementation "com.google.android.material:material:$material_version"
 
     //koin
-    implementation "io.insert-koin:koin-core:3.0.1"
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-scope:$koin_version"
 
     implementation "com.google.dagger:dagger:$dagger_version"
 
