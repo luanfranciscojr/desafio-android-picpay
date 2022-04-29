@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     override fun onResume() {
         super.onResume()
 
-        recyclerView = findViewById(R.id.recyclerView)
+      /*  recyclerView = findViewById(R.id.recyclerView)
         progressBar = findViewById(R.id.user_list_progress_bar)
 
         adapter = UserListAdapter()
@@ -69,6 +69,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
                     adapter.users = response.body()!!
                 }
-            })
+            })*/
     }
 }
