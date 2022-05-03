@@ -5,8 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.SavedStateHandle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.picpay.desafio.android.databinding.UserListFragmentBinding
 import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 class UserListFragment : Fragment() {
 
@@ -15,7 +18,9 @@ class UserListFragment : Fragment() {
     }
 
     private lateinit var binding: UserListFragmentBinding;
-    private val viewModel by viewModel<UserListViewModel>()
+    private val viewModel by viewModel<UserListViewModel>(){parametersOf(
+        SavedStateHandle()
+    )}
 
 
     override fun onCreateView(
@@ -26,13 +31,26 @@ class UserListFragment : Fragment() {
         binding.lifecycleOwner = this
 
         binding.viewModel = viewModel
+
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel.getUses()
-        // TODO: Use the ViewModel
+
+        val adapter = UserListAdapter()
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(activity)
+
+        if(savedInstanceState==null){
+            viewModel.getUses()
+            viewModel.refresh()
+        }
+
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        viewModel.setSaveState();
+        super.onSaveInstanceState(outState)
+    }
 }

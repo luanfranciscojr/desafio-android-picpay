@@ -1,18 +1,21 @@
-package com.picpay.desafio.android
+package com.picpay.desafio.android.user
 
 import android.view.View
+import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
+import com.desafio.domain.model.UserModel
+import com.picpay.desafio.android.R
+import com.picpay.desafio.android.databinding.ListItemUserBinding
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.list_item_user.view.*
 
 class UserListItemViewHolder(
-    itemView: View
-) : RecyclerView.ViewHolder(itemView) {
+    private val binding:  ListItemUserBinding
+) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(user: User) {
-        itemView.name.text = user.name
-        itemView.username.text = user.username
+    fun bind(user: UserModel) {
+        binding.user = user
         itemView.progressBar.visibility = View.VISIBLE
         Picasso.get()
             .load(user.img)
@@ -21,7 +24,6 @@ class UserListItemViewHolder(
                 override fun onSuccess() {
                     itemView.progressBar.visibility = View.GONE
                 }
-
                 override fun onError(e: Exception?) {
                     itemView.progressBar.visibility = View.GONE
                 }

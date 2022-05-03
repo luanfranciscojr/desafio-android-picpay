@@ -19,7 +19,7 @@ fun List<UserEntity>.asDomainModel(): List<UserModel> {
         UserModel(
             name = it.name,
             img = it.img,
-            username = it.userName
+            userName = it.userName
         )
     }
 }
