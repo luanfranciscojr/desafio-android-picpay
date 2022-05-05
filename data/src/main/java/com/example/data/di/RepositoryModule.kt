@@ -13,6 +13,6 @@ val repositoryModule = module {
         return UserRepositoryImpl(Dispatchers.IO,api, dao)
     }
 
-    single { providerUserRepository(get(), get()) }
+    factory { providerUserRepository(get(), get()) }
 
 }

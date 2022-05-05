@@ -43,13 +43,12 @@ class UserListViewModelTest {
 
     @Before
     fun setupViewModel() {
-
+        viewModel = UserListViewModel(testDispatcher, SavedStateHandle(), useCase)
     }
 
     @Test
     fun getUsers_returnUsers() = runBlockingTest {
-        viewModel = UserListViewModel(testDispatcher, SavedStateHandle(), useCase)
-        // given
+         // given
         val user = UserModel("Teste", "ImgUrl", "Teste")
 
         useCase.stub {
@@ -66,8 +65,7 @@ class UserListViewModelTest {
 
     @Test
     fun refresh_returnUsers() = runBlockingTest {
-        viewModel = UserListViewModel(testDispatcher, SavedStateHandle(), useCase)
-        // given
+          // given
         val user = UserModel("Teste", "ImgUrl", "Teste")
 
         useCase.stub {

@@ -39,13 +39,13 @@ val networkModule = module {
                 .build()
     }
 
-    factory {
+    single {
         provideHttpClient()
     }
 
     single { provideMoshi() }
 
-    factory { parameters ->
+    single { parameters ->
         provideRetrofit(
                 get(),
                 parameters.values[0] as String,

@@ -11,5 +11,5 @@ val useCaseModule = module {
         return UserUseCaseImpl(repository)
     }
 
-    single { providerUserUseCase(get()) }
+    factory { providerUserUseCase(get()) }
 }

@@ -4,7 +4,7 @@ import android.app.Application
 import com.desafio.domain.di.repositoryModule
 import com.desafio.domain.di.useCaseModule
 import com.example.data.di.databaseModule
-import com.picpay.data.di.apiModule
+import com.example.data.di.apiModule
 import com.picpay.data.di.networkModule
 import com.picpay.desafio.android.di.viewModelModule
 import org.koin.android.ext.koin.androidContext

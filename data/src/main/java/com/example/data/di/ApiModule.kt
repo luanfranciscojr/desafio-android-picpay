@@ -1,4 +1,4 @@
-package com.picpay.data.di
+package com.example.data.di
 
 import com.picpay.data.network.PicPayApi
 import org.koin.core.parameter.parametersOf

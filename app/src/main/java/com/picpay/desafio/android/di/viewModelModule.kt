@@ -8,6 +8,6 @@ import org.koin.android.viewmodel.dsl.viewModel
 
 val viewModelModule = module {
     viewModel {
-            (handle: SavedStateHandle) ->  UserListViewModel(dispatcher =  Dispatchers.Main,useCase = get(), state = handle)
+            (handle: SavedStateHandle) ->  UserListViewModel(dispatcher =  Dispatchers.IO,useCase = get(), state = handle)
     }
 }
